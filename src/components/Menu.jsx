@@ -19,6 +19,7 @@ function Menu() {
         )
     }
 
+    //Change here delete as not delete from DOM but delete from JSON
     function handleClick(e) {
         console.log(e.target.parentElement.parentElement.id);
         document.getElementById(e.target.parentElement.parentElement.id).remove()
