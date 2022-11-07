@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$colorOrangeButton: #C65A13;
+$colorWhiteFont: #ececec;
+$colorGreyDark: #404040;
+$colorBlueLight: #375F76;
+$colorBlueDark: #354957;
+$colorGreenUltraLight: #68756E;
+$colorGreenLight: #4D5F55;
+$colorGreenDark: #354F57;
+
+$borderRadiusGeneral: 6px;
+
+@mixin centerIt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $colorGreenLight;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $colorGreenUltraLight; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: $colorWhiteFont;
+  background-color: $colorBlueLight;
+  @include centerIt();
+  height: 100vh;
+}
+
+.stage {
+  @include centerIt();
+  flex-direction: row;
+  width: 1000px;
+  height: 656px;
+  max-height: 656px;
+  border-radius: $borderRadiusGeneral;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'menu note'
+}
+
+.menu {
+  background-color: $colorGreenDark;
+  grid-area: menu;
+  height: 100%;
+  background-color: $colorGreenDark;
+  border-bottom-left-radius: $borderRadiusGeneral;
+  border-top-left-radius: $borderRadiusGeneral;
+
+  .menuAddHeader {
+    background-color: $colorGreyDark;
+    @include centerIt();
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: $borderRadiusGeneral;
+
+    .menuAddButton {
+      background-color: $colorOrangeButton;
+      @include centerIt();
+      width: 40px;
+      height: 40px;
+      border-radius: $borderRadiusGeneral;
+      cursor: pointer;
+      font-size: 26px;
+    }
+  }
+
+  .entries {
+    overflow: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 594px;
+    border-bottom-left-radius: $borderRadiusGeneral;
+  }
+
+  .noteEntry {
+    background-color: $colorGreenLight;
+    @include centerIt();
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 18px;
+    word-wrap: break-word;
+    height: 70px;
+    cursor: pointer;
+  }
+}
+
+.noteBody {
+  grid-area: note;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $colorBlueDark;
+  width: 100%;
+  height: 656px;
+  border-bottom-right-radius: $borderRadiusGeneral;
+  border-top-right-radius: $borderRadiusGeneral;
+
+  .noteTopic {
+    overflow: auto;
+    font-size: 30px;
+    height: 15%;
+    padding: 10px;
+    @include centerIt();
+  }
+
+  .noteData {
+    overflow: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 83%;
+    padding: 10px;
+  }
+}
