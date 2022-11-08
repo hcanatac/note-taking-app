@@ -1,31 +1,34 @@
 import React from 'react'
 import Add from './Add'
 import {FiTrash} from 'react-icons/fi'
-import {useContext} from 'react'
-import {dataToPass} from '../App'
+import { dataHolder } from '../App'
+import { useContext } from 'react'
 
-function Menu() {
-    const data = useContext(dataToPass)
+export default function Menu() {
+    //Read main state in App.jsx
+    const value = useContext(dataHolder)
+    const data = value[0]
 
+    //return(console.log((value[0])[0].id)) //IT READS LIKE THIS FROM CONTEXT ARRAY FROM APP.JS
+
+    //Read the headers of notes and highlight the active one
     function getHeaders(){
         return(
             data.map
             (a =>
-            <div id={a.id} className='noteEntry' style={a.active?{backgroundColor:'#68756E'}:{backgroundColor:'#4D5F55'}}>
-                <div>{a.header.length>55?a.header.substring(0,55)+'...':a.header}</div>
-                <div className='deleteEntry' onClick={handleClick}><FiTrash/></div>
-            </div>
+                <div id={data.indexOf(a)} key={Math.floor(Math.random() * 999999)} className='noteEntry' style={a.active?{backgroundColor:'#68756E'}:{backgroundColor:'#4D5F55'}}  onClick={setActive}>
+                    <div id={data.indexOf(a)}>{a.header.length>55?a.header.substring(0,55)+'...':a.header}</div>
+                    <div className='deleteEntry'><FiTrash/></div>
+                </div>
             )
         )
     }
 
-    //Change here delete as not delete from DOM but delete from JSON
-    function handleClick(e) {
-        console.log(e.target.parentElement.parentElement.id);
-        document.getElementById(e.target.parentElement.parentElement.id).remove()
+    function setActive(e) {
+        const indexNumber = e.target.id
+        const whichActive = value[1]
+        whichActive(indexNumber)
     }
-
-
 
     return(
         <div className='menu'>
@@ -34,5 +37,3 @@ function Menu() {
         </div>
     )
 }
-
-export default Menu

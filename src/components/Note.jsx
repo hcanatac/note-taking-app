@@ -1,9 +1,10 @@
 import React from 'react'
+import {dataHolder} from '../App'
 import {useContext} from 'react'
-import {dataToPass} from '../App'
 
 function Note() {
-    const data = useContext(dataToPass)
+    const value = useContext(dataHolder)
+    const data = value[0]
 
     function findActiveTopic() {
         return(
