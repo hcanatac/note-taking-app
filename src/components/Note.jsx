@@ -3,12 +3,12 @@ import {dataHolder} from '../App'
 import {useContext} from 'react'
 
 function Note() {
-    const value = useContext(dataHolder)
-    const data = value[0]
+    const dataComing = useContext(dataHolder)
+    const data = dataComing[0]
 
     function findActiveTopic() {
         return(
-            data.map(a => a.active&&a.header.substring(0,90))
+            data.map(a => a.active&&a.topic.substring(0,90))
         )
     }
 
