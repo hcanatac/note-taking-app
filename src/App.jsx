@@ -11,24 +11,17 @@ export const dataHolder = createContext()
 export default function App() {
   const [data, setData] = useState(noteData)
 
-  function setActive(e) {
+  function setActive(idFromClick) {
     // console.log(e)
-
     data.map(a=> {
-      if(a.id === e) {
-        const indexNumber = data.indexOf(a)
-        console.log(data[indexNumber])
-
-        console.log(data);
-        // const newArray = data.splice(indexNumber,1)
-        a.active = !a.active
-        const newArray = [...data,a]
-        setData(newArray.slice(-1))
-
-        console.log(newArray);
-
+      if(a.id === idFromClick) {
+        a.active = true
+      } else {
+        a.active = false
       }
     })
+    console.log(data);
+    setData(data)
   }
 
   return (

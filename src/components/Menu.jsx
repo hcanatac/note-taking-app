@@ -2,7 +2,7 @@ import React from 'react'
 import Add from './Add'
 import { FiTrash } from 'react-icons/fi'
 import { dataHolder } from '../App'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 
 export default function Menu() {
@@ -12,6 +12,11 @@ export default function Menu() {
     const setActive = dataComing[1]
 
     //Read the headers of notes and highlight the active one
+    useEffect(()=>{
+        console.log("useEffect tetiklendi");
+    },[data])
+
+
     function getHeaders(){
         return(
             data.map
