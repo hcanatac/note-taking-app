@@ -3,7 +3,6 @@ import Add from './Add'
 import { FiTrash } from 'react-icons/fi'
 import { dataHolder } from '../App'
 import { useContext, useEffect } from 'react'
-import noteData from '../noteData.js'
 
 
 
@@ -11,16 +10,17 @@ export default function Menu(data) {
     const dataGoingBack = useContext(dataHolder)
     const setActive = dataGoingBack
 
-    
+
     function changeActive(e) {
         const dataId = e.target.id
         setActive(dataId);
+        console.log(data.value) //Check if updated data coming back from props or not?
     }
 
 
     useEffect(()=>{
-        console.log("useEffect OK")
-    },[noteData])
+        console.log("useEffect runs")
+    },[data.value])
 
 
     function getHeaders(){
