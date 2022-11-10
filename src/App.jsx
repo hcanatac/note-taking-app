@@ -14,17 +14,16 @@ export default function App() {
 
   function setActive(idFromClick) {
 
-    data.map(a=> {
-      if(a.id === idFromClick) {
-        a.active = true
-      } else {
-        a.active = false
-      }
-    })
+    const newArray = []
     
-    setData(data)
-    console.log(data)
+    data.map(a=> {
+      if(a.id === idFromClick) {a.active= !a.active;newArray.push(a)} else {a.active=false;newArray.push(a)}
+    })
 
+    setData(newArray)
+    
+    console.log(newArray)
+    console.log(data)
   }
 
   return (
