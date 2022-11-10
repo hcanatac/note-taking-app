@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Menu from './components/Menu'
 import Note from './components/Note'
 import {useState, createContext} from 'react'
@@ -11,6 +11,7 @@ export const dataHolder = createContext()
 export default function App() {
   const [data, setData] = useState(noteData)
 
+  //Which note is active right now?
   function setActive(idFromClick) {
     const newArray = []
     data.map(a=> {
@@ -19,15 +20,21 @@ export default function App() {
     setData(newArray)
   }
 
+  //Delete the note and set the top one active
   function deleteNote(idFromClick) {
     const newArray = []
-    data.map(a=> {
-        if(a.id!==idFromClick) {newArray.push(a)}
+    data.map(a=>{
+      if(a.id===idFromClick){data.splice(data.indexOf(a),1)}
+      newArray.push(a)
     })
     setData(newArray)
-    console.log(newArray)
-    console.log(data) //Why data is not updating?
+
+    //Set the top one active after a little bit later because of async
+    setTimeout(() => {
+      data.length>0&&setActive(data[0].id)
+    }, 1);
   }
+
 
   return (
     <div className='stage'>

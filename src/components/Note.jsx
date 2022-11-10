@@ -15,13 +15,16 @@ export default function Note(data) {
     }
 
     return (
-        <div className='noteBody'>
-            <div className='noteTopic'>
-                {findActiveTopic()}
+        <>
+            <div className='noteBody' style={data.value.length===0?{display:'none'}:{display:'block'}}>
+                <div className='noteTopic'>
+                    {findActiveTopic()}
+                </div>
+                <div className='noteData'>
+                    {findActiveBody()}
+                </div>
             </div>
-            <div className='noteData'>
-                {findActiveBody()}
-            </div>
-        </div>
+            <div className='noteBody' style={data.value.length===0?{display:'flex'}:{display:'none'}}>Click "+" icon to add a note.</div>
+        </>
     );
 }

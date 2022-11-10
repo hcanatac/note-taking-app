@@ -119,7 +119,7 @@ body {
     @include centerIt();
     justify-content: space-between;
     padding-left: 15px;
-    padding-right: 18px;
+    padding-right: 14px;
     word-wrap: break-word;
     height: 70px;
     cursor: pointer;
@@ -138,6 +138,7 @@ body {
 }
 
 .noteBody {
+  background-color: #C65A13;
   grid-area: note;
   flex-direction: column;
   justify-content: space-between;
@@ -146,6 +147,7 @@ body {
   height: 656px;
   border-bottom-right-radius: $borderRadiusGeneral;
   border-top-right-radius: $borderRadiusGeneral;
+  @include centerIt();
 
   .noteTopic {
     overflow: auto;
@@ -163,4 +165,5 @@ body {
     height: 83%;
     padding: 10px;
   }
+
 }
