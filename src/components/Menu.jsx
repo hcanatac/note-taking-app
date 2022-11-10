@@ -11,7 +11,7 @@ export default function Menu() {
     const data = dataComing[0]
     const setActive = dataComing[1]
 
-    //Read the headers of notes and highlight the active one
+
     useEffect(()=>{
         console.log("useEffect tetiklendi");
     },[data])
@@ -22,7 +22,7 @@ export default function Menu() {
             data.map
             (a =>
                 <div id={a.id} key={Math.floor(Math.random() * 999999)} className='noteEntry' style={a.active?{backgroundColor:'#68756E'}:{backgroundColor:'#4D5F55'}} onClick={changeActive}>
-                    <div id={a.id} onClick={changeActive}>{a.topic.length>55?a.topic.substring(0,55)+"...":a.topic}</div>
+                    <div id={a.id}>{a.topic.length>55?a.topic.substring(0,55)+"...":a.topic}</div>
                     <div className='deleteEntry'><FiTrash/></div>
                 </div>
             )
@@ -31,7 +31,7 @@ export default function Menu() {
 
     function changeActive(e) {
         const dataId = e.target.id
-        setActive(dataId)
+        setActive(dataId);
     }
 
 

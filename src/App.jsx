@@ -5,6 +5,7 @@ import {useState, createContext} from 'react'
 import noteData from './noteData.js'
 
 
+
 export const dataHolder = createContext()
 
 
@@ -19,9 +20,11 @@ export default function App() {
       } else {
         a.active = false
       }
+      // a.aid===idFromClick?a.active=true:a.active=false
     })
-    console.log(data);
     setData(data)
+    console.log(data);
+
   }
 
   return (
