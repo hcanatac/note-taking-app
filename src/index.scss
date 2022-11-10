@@ -125,6 +125,16 @@ body {
     cursor: pointer;
     border-bottom: 1px solid $colorGreenUltraLight;
   }
+
+  .deleteEntry {
+    min-width: 30px;
+    height: 30px;
+    @include centerIt();
+
+    svg {
+      pointer-events: none;
+    }
+  }
 }
 
 .noteBody {
@@ -143,6 +153,7 @@ body {
     height: 15%;
     padding: 10px;
     @include centerIt();
+    text-align: center;
   }
 
   .noteData {
