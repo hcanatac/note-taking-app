@@ -7,13 +7,13 @@ export default [
     },
     {
         id: "873499",
-        active: true,
+        active: false,
         topic: "Weekend activities",
         body: "Nullam semper eu orci at blandit. Sed eget ultrices tellus. Suspendisse ac aliquam lacus, eget consectetur justo. Cras maximus facilisis dolor, ullamcorper ullamcorper purus tempus vel. Nullam porttitor tellus nec dolor hendrerit, non pulvinar dui viverra."
     },
     {
         id: "120094",
-        active: false,
+        active: true,
         topic: "Do it on wednesday",
         body: "Etiam congue metus dignissim euismod ullamcorper."
     },

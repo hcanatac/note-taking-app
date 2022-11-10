@@ -13,25 +13,25 @@ export default function App() {
   const [data, setData] = useState(noteData)
 
   function setActive(idFromClick) {
-    // console.log(e)
+
     data.map(a=> {
       if(a.id === idFromClick) {
         a.active = true
       } else {
         a.active = false
       }
-      // a.aid===idFromClick?a.active=true:a.active=false
     })
+    
     setData(data)
-    console.log(data);
+    console.log(data)
 
   }
 
   return (
     <div className='stage'>
-      <dataHolder.Provider value={[data,setActive]}>
-        <Menu/>
-        <Note/>
+      <dataHolder.Provider value={setActive}>
+        <Menu value={data}/>
+        <Note value={data}/>
       </dataHolder.Provider>
     </div>
   )
