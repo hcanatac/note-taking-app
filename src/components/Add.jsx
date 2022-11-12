@@ -1,16 +1,19 @@
 import React from 'react';
 import {IoMdAdd} from 'react-icons/io'
+import { useContext } from 'react'
+import { dataHolder } from '../App'
 
 
-function Add() {
+export default function Add() {
+    const dataGoingBack = useContext(dataHolder)
+    const openNew = dataGoingBack[3]
+
     return(
         <div className='menuAddHeader'>
             <div>Add New Note</div>
-            <div className='menuAddButton'>
+            <div className='menuAddButton' onClick={openNew}>
                     <IoMdAdd/>
             </div>
         </div>
     )
 }
-
-export default Add

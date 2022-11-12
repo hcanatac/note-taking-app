@@ -12,6 +12,7 @@ $colorBlueDark: #354957;
 $colorGreenUltraLight: #68756E;
 $colorGreenLight: #4D5F55;
 $colorGreenDark: #354F57;
+$colorNewNote: #293135;
 
 $borderRadiusGeneral: 6px;
 
@@ -44,18 +45,6 @@ $borderRadiusGeneral: 6px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 body {
   font-family: 'Inter', sans-serif;
   color: $colorWhiteFont;
@@ -74,7 +63,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 2.5fr;
   grid-template-rows: 1fr;
-  grid-template-areas: 'menu note'
+  grid-template-areas: 'menu note';
 }
 
 .menu {
@@ -119,9 +108,10 @@ body {
     @include centerIt();
     justify-content: space-between;
     padding-left: 15px;
-    padding-right: 14px;
+    padding-right: 11px;
     word-wrap: break-word;
     height: 70px;
+    font-weight: 100;
     cursor: pointer;
     border-bottom: 1px solid $colorGreenUltraLight;
   }
@@ -164,6 +154,34 @@ body {
     overflow-x: hidden;
     height: 83%;
     padding: 10px;
+    font-weight: 100;
   }
 
+}
+
+.newNote {
+  position: absolute;
+  margin-left: 115px;
+  @include centerIt();
+  z-index: 2;
+  background-color: $colorNewNote;
+  border-radius: $borderRadiusGeneral;
+  width: 770px;
+  height: 570px;
+}
+
+.MuiTextField-root{
+  color: #C65A13;
+}
+
+.bgBlur {
+  position: absolute;
+  @include centerIt();
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cf242400;
+  backdrop-filter: blur(3px);
 }

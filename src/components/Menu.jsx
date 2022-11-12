@@ -5,7 +5,6 @@ import { dataHolder } from '../App'
 import { useContext } from 'react'
 
 
-
 export default function Menu(data) {
     const dataGoingBack = useContext(dataHolder)
     const setActive = dataGoingBack[0]
@@ -34,7 +33,6 @@ export default function Menu(data) {
             )
         )
     }
-
     return(
         <div className='menu'>
             <Add/>
