@@ -11,7 +11,7 @@ export const dataHolder = createContext()
 
 export default function App() {
   const [data, setData] = useState(noteData)
-  const [hideBlur,setHideBlur] = useState(true)
+  const [hideBlur,setHideBlur] = useState(false)
 
 
 
@@ -32,6 +32,15 @@ export default function App() {
     setData(newArray);
   }
 
+  function saveNewNote(t,n) {
+    const random = String(Math.floor(Math.random() * 999999))
+    const newList = []
+    newList.push({id: random,active:false,topic:t,body:n})
+    data.map(a=>newList.push(a))
+    setData(newList)
+    cancelNew()
+  }
+
   //Delete the note and set the top one active
   function deleteNote(idFromClick) {
     const newArray = []
@@ -49,15 +58,15 @@ export default function App() {
 
 
   return (
-    <dataHolder.Provider value={[setActive, deleteNote, cancelNew, openNew]}>
+    <dataHolder.Provider value={[setActive, deleteNote, cancelNew, openNew, saveNewNote]}>
 
-      <New value={hideBlur}/>
-      
-      <div className='stage' style={window.innerHeight<665?{transform:"scale(80%)"}:{transform:"scale(100%)"}}>
-          <Menu value={data}/>
-          <Note value={data}/>
-      </div>
-    
+        <New value={hideBlur} data={data}/>
+        
+        <div className='stage' style={window.innerHeight<665?{transform:"scale(80%)"}:{transform:"scale(100%)"}}>
+            <Menu value={data}/>
+            <Note value={data}/>
+        </div>
+
     </dataHolder.Provider>
   )
 }

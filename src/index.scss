@@ -7,6 +7,7 @@
 $colorOrangeButton: #C65A13;
 $colorWhiteFont: #ececec;
 $colorGreyDark: #404040;
+$colorGreyLight: #5c5c5c;
 $colorBlueLight: #375F76;
 $colorBlueDark: #354957;
 $colorGreenUltraLight: #68756E;
@@ -20,6 +21,11 @@ $borderRadiusGeneral: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin clearInput {
+  border: 0;
+  outline: none;
 }
 
 
@@ -163,15 +169,57 @@ body {
   position: absolute;
   margin-left: 115px;
   @include centerIt();
+  flex-direction: column;
   z-index: 2;
   background-color: $colorNewNote;
   border-radius: $borderRadiusGeneral;
   width: 770px;
   height: 570px;
+
+  svg {
+    position: absolute;
+    left: 733px;
+    top: 5px;
+    color: $colorGreyLight;
+    font-size: 30px;
+    cursor: pointer;
+  }
 }
 
-.MuiTextField-root{
-  color: #C65A13;
+.newNoteTopic, .newNoteBody {
+  background-color: $colorBlueDark;
+  @include clearInput();
+  width: 80%;
+  color: $colorWhiteFont;
+  font-weight: 100;
+  font-family: inherit;
+  font-size: inherit;
+  min-height: 40px;
+  border: 1px solid $colorGreyLight;
+  border-radius: $borderRadiusGeneral;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.newNoteBody {
+  height: 400px;
+  resize: none;
+  overflow-y: scroll;
+}
+
+.newAddButton, .newCancelButton {
+  @include clearInput();
+  color: $colorWhiteFont;
+  width: 70px;
+  height: 30px;
+  background-color: $colorOrangeButton;
+  border-radius: $borderRadiusGeneral;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.newCancelButton {
+  background-color: $colorGreyDark;
 }
 
 .bgBlur {
