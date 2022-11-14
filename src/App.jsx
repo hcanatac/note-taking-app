@@ -37,8 +37,12 @@ export default function App() {
     const newList = []
     newList.push({id: random,active:false,topic:t,body:n})
     data.map(a=>newList.push(a))
+    newList[0].active=true
+    newList[1].active=false
     setData(newList)
+
     cancelNew()
+
   }
 
   //Delete the note and set the top one active

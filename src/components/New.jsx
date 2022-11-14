@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { dataHolder } from '../App'
-import { FaRegWindowClose } from 'react-icons/fa'
+import { IoIosClose } from 'react-icons/io'
 
 export default function New(e) {
     const [topic, setTopic] = React.useState('')
@@ -34,7 +34,7 @@ export default function New(e) {
 
       <div className='newNote' style={e.value?{display:"none"}:{display:"flex"}}>
 
-        <FaRegWindowClose className='newCloseButton' onClick={cancelNew}/>
+        <IoIosClose className='newCloseButton' onClick={cancelNew}/>
 
         <input type="text" placeholder='Topic (Max. 90 Characters)' className='newNoteTopic' name='newNoteTopic' onChange={handleOnChange} value={topic}/>
         <textarea type="text" placeholder='Note' className='newNoteBody' name='newNoteBody' onChange={handleOnChange} value={note}/>
