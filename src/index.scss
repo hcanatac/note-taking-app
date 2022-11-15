@@ -115,11 +115,13 @@ body {
     justify-content: space-between;
     padding-left: 15px;
     padding-right: 11px;
-    word-wrap: break-word;
+    word-break: break-all;
+
     height: 70px;
     font-weight: 100;
     cursor: pointer;
     border-bottom: 1px solid $colorGreenUltraLight;
+    user-select: none;
   }
 
   .deleteEntry {
@@ -144,14 +146,17 @@ body {
   border-bottom-right-radius: $borderRadiusGeneral;
   border-top-right-radius: $borderRadiusGeneral;
   @include centerIt();
+  white-space: pre-wrap;
 
   .noteTopic {
-    overflow: auto;
+    overflow: hidden;
     font-size: 30px;
     height: 15%;
+    width: 714px;
     padding: 10px;
     @include centerIt();
     text-align: center;
+    word-break: break-all;
   }
 
   .noteData {
@@ -175,6 +180,7 @@ body {
   border-radius: $borderRadiusGeneral;
   width: 770px;
   height: 570px;
+
 
   svg {
     position: absolute;

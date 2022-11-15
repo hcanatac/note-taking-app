@@ -35,10 +35,16 @@ export default function App() {
   function saveNewNote(t,n) {
     const random = String(Math.floor(Math.random() * 999999))
     const newList = []
-    newList.push({id: random,active:false,topic:t,body:n})
-    data.map(a=>newList.push(a))
+
+    newList.push({id: random,active:false,topic:t===""?"(no topic)":t,body:n===''?'(no note)':n}) //Push the new one first
+    data.map(a=>newList.push(a)) //Then the old ones
+
+    newList.map(a=>{
+      if(a.active){a.active=false}
+    })
+
     newList[0].active=true
-    newList[1].active=false
+
     setData(newList)
 
     cancelNew()
