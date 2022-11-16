@@ -66,8 +66,8 @@ body {
 .stage {
   @include centerIt();
   flex-direction: row;
-  width: 1000px;
-  height: 656px;
+
+  max-width: 1000px;
   max-height: 656px;
   border-radius: $borderRadiusGeneral;
   display: grid;
@@ -242,4 +242,12 @@ body {
   height: 100vh;
   background-color: #cf242400;
   backdrop-filter: blur(3px);
+}
+
+
+//Fit itself for old laptops with narrow height
+@media screen and (max-height: 700px) {
+  body {
+    transform: scale(80%);
+  }
 }

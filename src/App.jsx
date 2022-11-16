@@ -80,12 +80,12 @@ export default function App() {
 
         <New value={hideBlur} data={data}/>
         
-        <BsSun size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?null:{display:"none"}}/>
-        <TbMoon size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"none"}:null}/>
+        <BsSun size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"block",margin:"3px"}:{display:"none"}}/>
+        <TbMoon size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"none"}:{display:"block",color:"black",margin:"3px"}}/>
 
         <div className='stage'>
             <Menu value={data} darkMode={darkMode}/>
-            <Note value={data}/>
+            <Note value={data} darkMode={darkMode}/>
         </div>
 
     </dataHolder.Provider>
