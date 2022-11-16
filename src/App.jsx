@@ -1,9 +1,13 @@
-import React from 'react'
+import React,{useState, createContext, Suspense} from 'react'
 import Menu from './components/Menu'
 import Note from './components/Note'
 import New from './components/New'
-import {useState, createContext} from 'react'
 import noteData from './noteData.js'
+import {TbMoon} from 'react-icons/tb'
+import {BsSun} from 'react-icons/bs'
+import './style.scss'
+
+
 
 
 export const dataHolder = createContext()
@@ -12,6 +16,7 @@ export const dataHolder = createContext()
 export default function App() {
   const [data, setData] = useState(noteData)
   const [hideBlur,setHideBlur] = useState(false)
+  const [darkMode,setDarkMode] = useState(true)
 
 
 
@@ -67,13 +72,19 @@ export default function App() {
   }
 
 
+
   return (
+    
+
     <dataHolder.Provider value={[setActive, deleteNote, cancelNew, openNew, saveNewNote]}>
 
         <New value={hideBlur} data={data}/>
         
-        <div className='stage' style={window.innerHeight<665?{transform:"scale(80%)"}:{transform:"scale(100%)"}}>
-            <Menu value={data}/>
+        <BsSun size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?null:{display:"none"}}/>
+        <TbMoon size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"none"}:null}/>
+
+        <div className='stage'>
+            <Menu value={data} darkMode={darkMode}/>
             <Note value={data}/>
         </div>
 

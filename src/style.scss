@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$colorOrangeButton: #C65A13;
+$colorWhiteFont: #ececec;
+$colorGreyDark: #404040;
+$colorGreyLight: #5c5c5c;
+$colorBlueLight: #375F76;
+$colorBlueDark: #354957;
+$colorGreenUltraLight: #68756E;
+$colorGreenLight: #4D5F55;
+$colorGreenDark: #354F57;
+$colorNewNote: #293135;
+
+$borderRadiusGeneral: 6px;
+
+@mixin centerIt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin clearInput {
+  border: 0;
+  outline: none;
+}
+
+
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $colorGreenLight;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $colorGreenUltraLight; 
+}
+
+
+
+
+
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: $colorWhiteFont;
+  background-color: $colorBlueLight;
+  @include centerIt();
+  height: 100vh;
+}
+
+.changeThemeButton{
+  cursor: pointer;
+}
+
+.stage {
+  @include centerIt();
+  flex-direction: row;
+  width: 1000px;
+  height: 656px;
+  max-height: 656px;
+  border-radius: $borderRadiusGeneral;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'menu note';
+}
+
+.menu {
+  background-color: $colorGreenDark;
+  grid-area: menu;
+  height: 100%;
+  background-color: $colorGreenDark;
+  border-bottom-left-radius: $borderRadiusGeneral;
+  border-top-left-radius: $borderRadiusGeneral;
+
+  .menuAddHeader {
+    background-color: $colorGreyDark;
+    @include centerIt();
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: $borderRadiusGeneral;
+
+    .menuAddButton {
+      background-color: $colorOrangeButton;
+      @include centerIt();
+      width: 40px;
+      height: 40px;
+      border-radius: $borderRadiusGeneral;
+      cursor: pointer;
+      font-size: 26px;
+    }
+  }
+
+  .entries {
+    overflow: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 594px;
+    border-bottom-left-radius: $borderRadiusGeneral;
+  }
+
+  .noteEntry {
+    background-color: $colorGreenLight;
+    @include centerIt();
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 11px;
+    word-break: break-all;
+
+    height: 70px;
+    font-weight: 100;
+    cursor: pointer;
+    border-bottom: 1px solid $colorGreenUltraLight;
+    user-select: none;
+  }
+
+  .deleteEntry {
+    min-width: 30px;
+    height: 30px;
+    @include centerIt();
+
+    svg {
+      pointer-events: none;
+    }
+  }
+}
+
+.noteBody {
+  background-color: #C65A13;
+  grid-area: note;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $colorBlueDark;
+  width: 100%;
+  height: 656px;
+  border-bottom-right-radius: $borderRadiusGeneral;
+  border-top-right-radius: $borderRadiusGeneral;
+  @include centerIt();
+  white-space: pre-wrap;
+
+  .noteTopic {
+    overflow: hidden;
+    font-size: 30px;
+    height: 15%;
+    width: 714px;
+    padding: 10px;
+    @include centerIt();
+    text-align: center;
+    word-break: break-all;
+  }
+
+  .noteData {
+    overflow: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 83%;
+    padding: 10px;
+    font-weight: 100;
+  }
+
+}
+
+.newNote {
+  position: absolute;
+  margin-left: 115px;
+  @include centerIt();
+  flex-direction: column;
+  z-index: 2;
+  background-color: $colorNewNote;
+  border-radius: $borderRadiusGeneral;
+  width: 770px;
+  height: 570px;
+
+
+  svg {
+    position: absolute;
+    left: 733px;
+    top: 5px;
+    color: $colorGreenUltraLight;
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
+
+.newNoteTopic, .newNoteBody {
+  background-color: $colorBlueDark;
+  @include clearInput();
+  width: 80%;
+  color: $colorWhiteFont;
+  font-weight: 100;
+  font-family: inherit;
+  font-size: inherit;
+  min-height: 40px;
+  border: 1px solid $colorGreyLight;
+  border-radius: $borderRadiusGeneral;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.newNoteBody {
+  height: 400px;
+  resize: none;
+  overflow-y: scroll;
+}
+
+.newAddButton, .newCancelButton {
+  @include clearInput();
+  color: $colorWhiteFont;
+  width: 70px;
+  height: 30px;
+  background-color: $colorOrangeButton;
+  border-radius: $borderRadiusGeneral;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.newCancelButton {
+  background-color: $colorGreyDark;
+}
+
+.bgBlur {
+  position: absolute;
+  @include centerIt();
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cf242400;
+  backdrop-filter: blur(3px);
+}
