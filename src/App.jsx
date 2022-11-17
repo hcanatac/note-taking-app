@@ -73,6 +73,22 @@ export default function App() {
 
 
 
+
+
+  React.useEffect(() => {
+    // add class to body element
+    document.body.classList.add('bodyclass');
+
+    // set style on body element
+    document.body.style.backgroundColor = darkMode?'#375F76':'#ddd';
+
+  }, [darkMode]);
+
+
+
+
+
+
   return (
     
 

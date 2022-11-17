@@ -28,13 +28,13 @@ export default function Menu(data) {
     const [fontColor, setFontColor] = React.useState(null)
     
     useEffect(()=>{
-        setActiveColor(data.darkMode?"#68756E":"#99c4ad")
-        setPassiveColor(data.darkMode?"#4D5F55":"#799b89")
+        setActiveColor(data.darkMode?"#68756E":"#dcede4")
+        setPassiveColor(data.darkMode?"#4D5F55":"#c6e7d5")
         setFontColor(data.darkMode?"#ececec":"black")
     },[data.darkMode])
     
 
-
+    const background = data.darkMode?null:'#e1e5e1'
 
     function getHeaders(){
         return(
@@ -47,9 +47,13 @@ export default function Menu(data) {
             )
         )
     }
+
+
+
+
     return(
-        <div className='menu'>
-            <Add/>
+        <div className='menu' style={data.darkMode?null:{backgroundColor:'#e0e7e3'}}>
+            <Add darkMode={data.darkMode}/>
             <div className='entries'>{getHeaders()}</div>
         </div>
     )

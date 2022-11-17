@@ -19,18 +19,20 @@ export default function Note(data) {
 
     useEffect(()=>{
         setEmpty(data.value.length===0?true:false)
-        if(darkMode&&empty){}
+        if(data.darkMode&&empty){}
     },[data.value.length,data.darkMode])
 
-    const show = empty?{display:'none'}:{display:'flex'}
-    const background = data.darkMode?{backgroundColor:'#354957'}:{backgroundColor:'#aaaaaa'}
+
+    
+    const show = !empty?{display:'none'}:{display:'flex'}
+    const background = data.darkMode?{backgroundColor:'#354957'}:{backgroundColor:'#f2f9f1'}
     const fontColor = data.darkMode?{color:"#ececec"}:{color:"black"}
 
-    console.log(show,background);
+
 
     return (
         <>
-            <div className='noteBody' style={}>
+            <div className='noteBody' style={{...background,...fontColor}}>
                 <div className='noteTopic'>
                     {findActiveTopic()}
                 </div>
@@ -38,7 +40,7 @@ export default function Note(data) {
                     {findActiveBody()}
                 </div>
             </div>
-            <div className='noteBody' style={}>Click "+" icon to add a note.</div>
+            <div className='noteBody' style={show}>Click "+" icon to add a note.</div>
         </>
     );
 }

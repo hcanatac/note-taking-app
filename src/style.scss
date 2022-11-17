@@ -85,7 +85,6 @@ body {
   background-color: $colorGreenDark;
   grid-area: menu;
   height: 100%;
-  background-color: $colorGreenDark;
   border-bottom-left-radius: $borderRadiusGeneral;
   border-top-left-radius: $borderRadiusGeneral;
 
@@ -98,6 +97,7 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     border-top-left-radius: $borderRadiusGeneral;
+    user-select: none;
 
     .menuAddButton {
       background-color: $colorOrangeButton;
