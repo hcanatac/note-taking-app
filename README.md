@@ -4,3 +4,6 @@ This is a demo app that not connected to any database and gather its data from a
 
 Live Demo:
 https://canatac.xyz/notes
+
+
+![Capture](https://user-images.githubusercontent.com/21693499/202575797-94695cb3-8f92-4393-a1b1-b1b2dabf84a5.PNG)
