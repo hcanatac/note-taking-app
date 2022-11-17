@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Add from './Add'
 import { FiTrash } from 'react-icons/fi'
 import { dataHolder } from '../App'
@@ -22,10 +22,24 @@ export default function Menu(data) {
     }
 
 
+    //Dark / Light mode adjusment
+    const [activeColor, setActiveColor] = React.useState(null)
+    const [passiveColor, setPassiveColor] = React.useState(null)
+    const [fontColor, setFontColor] = React.useState(null)
+    
+    useEffect(()=>{
+        setActiveColor(data.darkMode?"#68756E":"#99c4ad")
+        setPassiveColor(data.darkMode?"#4D5F55":"#799b89")
+        setFontColor(data.darkMode?"#ececec":"black")
+    },[data.darkMode])
+    
+
+
+
     function getHeaders(){
         return(
             data.value.map(a=>(
-                <div id={a.id} key={Math.floor(Math.random() * 999999)} className='noteEntry' style={a.active?{backgroundColor:'#68756E'}:{backgroundColor:'#4D5F55'}} onClick={changeActive}>
+                <div id={a.id} key={Math.floor(Math.random() * 999999)} className='noteEntry' style={a.active?{backgroundColor:activeColor,color:fontColor}:{backgroundColor:passiveColor,color:fontColor}} onClick={changeActive}>
                     <div id={a.id}>{a.topic.length>55?a.topic.substring(0,55)+"...":a.topic}</div>
                     <div className='deleteEntry' onClick={deleteIt}><FiTrash/></div>
                 </div>

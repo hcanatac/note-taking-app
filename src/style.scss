@@ -15,6 +15,11 @@ $colorGreenLight: #4D5F55;
 $colorGreenDark: #354F57;
 $colorNewNote: #293135;
 
+$menuDarkActiveColor: #68756E;
+$menuDarkPassiveColor: #4D5F55;
+$menuLightActiveColor: #99c4ad;
+$menuLightPassiveColor: #799b89;
+
 $borderRadiusGeneral: 6px;
 
 @mixin centerIt {
@@ -140,11 +145,9 @@ body {
 }
 
 .noteBody {
-  background-color: #C65A13;
   grid-area: note;
   flex-direction: column;
   justify-content: space-between;
-  background-color: $colorBlueDark;
   width: 100%;
   height: 656px;
   border-bottom-right-radius: $borderRadiusGeneral;

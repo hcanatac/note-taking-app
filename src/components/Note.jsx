@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Note(data) {
 
@@ -14,9 +14,23 @@ export default function Note(data) {
         )
     }
 
+
+    const [empty, setEmpty] = React.useState(false)
+
+    useEffect(()=>{
+        setEmpty(data.value.length===0?true:false)
+        if(darkMode&&empty){}
+    },[data.value.length,data.darkMode])
+
+    const show = empty?{display:'none'}:{display:'flex'}
+    const background = data.darkMode?{backgroundColor:'#354957'}:{backgroundColor:'#aaaaaa'}
+    const fontColor = data.darkMode?{color:"#ececec"}:{color:"black"}
+
+    console.log(show,background);
+
     return (
         <>
-            <div className='noteBody' style={data.value.length===0?{display:'none'}:{display:'block'}}>
+            <div className='noteBody' style={}>
                 <div className='noteTopic'>
                     {findActiveTopic()}
                 </div>
@@ -24,7 +38,7 @@ export default function Note(data) {
                     {findActiveBody()}
                 </div>
             </div>
-            <div className='noteBody' style={data.value.length===0?{display:'flex'}:{display:'none'}}>Click "+" icon to add a note.</div>
+            <div className='noteBody' style={}>Click "+" icon to add a note.</div>
         </>
     );
 }
