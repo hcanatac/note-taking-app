@@ -3,9 +3,12 @@ import Menu from './components/Menu'
 import Note from './components/Note'
 import New from './components/New'
 import noteData from './noteData.js'
-import {TbMoon} from 'react-icons/tb'
-import {BsSun} from 'react-icons/bs'
+
+import { Switch } from 'antd';
+import 'antd/dist/antd.css';
+
 import './style.scss'
+
 
 
 
@@ -15,7 +18,7 @@ export const dataHolder = createContext()
 
 export default function App() {
   const [data, setData] = useState(noteData)
-  const [hideBlur,setHideBlur] = useState(false)
+  const [hideBlur,setHideBlur] = useState(true)
   const [darkMode,setDarkMode] = useState(true)
 
 
@@ -94,10 +97,10 @@ export default function App() {
 
     <dataHolder.Provider value={[setActive, deleteNote, cancelNew, openNew, saveNewNote]}>
 
-        <New value={hideBlur} data={data}/>
+        <New value={hideBlur} data={data} darkMode={darkMode}/>
+
+        <Switch defaultChecked onChange={()=>setDarkMode(!darkMode)} />
         
-        <BsSun size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"block",margin:"3px"}:{display:"none"}}/>
-        <TbMoon size={20} className="changeThemeButton" onClick={()=>setDarkMode(!darkMode)} style={darkMode?{display:"none"}:{display:"block",color:"black",margin:"3px"}}/>
 
         <div className='stage'>
             <Menu value={data} darkMode={darkMode}/>

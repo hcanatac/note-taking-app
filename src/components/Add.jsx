@@ -8,10 +8,6 @@ export default function Add(data) {
     const dataGoingBack = useContext(dataHolder)
     const openNew = dataGoingBack[3]
 
-    useEffect(()=>{
-        console.log(data.darkMode);
-    },[])
-
     return(
         <div className='menuAddHeader' style={data.darkMode?{backgroundColor:"#404040"}:{backgroundColor:"#c3c3c3"}}>
             <div style={data.darkMode?{color:"#ececec"}:{color:"black"}}>Add New Note</div>

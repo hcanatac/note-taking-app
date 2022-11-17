@@ -64,8 +64,13 @@ body {
   height: 100vh;
 }
 
-.changeThemeButton{
-  cursor: pointer;
+.ant-switch {
+  margin-bottom: 5px;
+  background-color: #c3c3c3;
+}
+
+.ant-switch-checked {
+  background-color: #364956;
 }
 
 .stage {

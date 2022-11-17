@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { dataHolder } from '../App'
 import { IoIosClose } from 'react-icons/io'
 
-export default function New(e) {
+export default function New(data) {
     const [topic, setTopic] = React.useState('')
     const [note, setNote] = React.useState('')
     const [isEmpty, setIsEmpty] = React.useState(true)
@@ -33,12 +33,12 @@ export default function New(e) {
     //If new entry added in App then clear states here (also text fields)
     useEffect(()=>{
       cancelNew()
-    },[e.data])
+    },[data.data])
 
   return (
     <>
 
-      <div className='newNote' style={e.value?{display:"none"}:{display:"flex"}}>
+      <div className='newNote' style={data.value?{display:"none"}:{display:"flex"}}>
 
         <IoIosClose className='newCloseButton' onClick={cancelNew}/>
 
@@ -52,7 +52,7 @@ export default function New(e) {
         
       </div>
 
-      <div className='bgBlur' onClick={cancelNew} style={e.value?{display:"none"}:{display:"block"}}></div>
+      <div className='bgBlur' onClick={cancelNew} style={data.value?{display:"none"}:{display:"block"}}></div>
     </>
   )
 }
