@@ -40,7 +40,7 @@ export default function Note(data) {
                     {findActiveBody()}
                 </div>
             </div>
-            <div className='noteBody' style={show}>Click "+" icon to add a note.</div>
+            <div className='noteBody' style={{...background,...fontColor,...show}}>Click "+" icon to add a note.</div>
         </>
     );
 }

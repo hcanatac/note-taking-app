@@ -35,15 +35,23 @@ export default function New(data) {
       cancelNew()
     },[data.data])
 
+
+
+    const background = data.darkMode?{backgroundColor:'#354957'}:{backgroundColor:'#f2f9f1'}
+    const backgroundBack = data.darkMode?{backgroundColor:'#354957'}:{backgroundColor:'#c9c6c6'}
+    const fontColor = data.darkMode?{color:"#ececec"}:{color:"black"}
+
+
+
   return (
     <>
 
-      <div className='newNote' style={data.value?{display:"none"}:{display:"flex"}}>
+      <div className='newNote' style={data.value?{display:"none"}:{...backgroundBack,display:"flex"}}>
 
         <IoIosClose className='newCloseButton' onClick={cancelNew}/>
 
-        <input type="text" placeholder='Topic (Max. 90 Characters)' className='newNoteTopic' name='newNoteTopic' onChange={handleOnChange} value={topic} maxLength={90}/>
-        <textarea rows="99" type="text" placeholder='Note' className='newNoteBody' name='newNoteBody' onChange={handleOnChange} value={note}/>
+        <input type="text" placeholder='Topic (Max. 90 Characters)' className='newNoteTopic' name='newNoteTopic' onChange={handleOnChange} value={topic} maxLength={90} style={{...background,...fontColor}}/>
+        <textarea rows="99" type="text" placeholder='Note' className='newNoteBody' name='newNoteBody' onChange={handleOnChange} value={note} style={{...background,...fontColor}}/>
 
         <div>
           <button className='newAddButton' onClick={saveNewNote} disabled={isEmpty} style={isEmpty?{backgroundColor:'grey',cursor:'default'}:{backgroundColor:'#C65A13'}}>Add</button>
