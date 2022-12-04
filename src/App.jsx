@@ -1,4 +1,4 @@
-import React,{useState, createContext, Suspense} from 'react'
+import React,{useState, createContext} from 'react'
 import Menu from './components/Menu'
 import Note from './components/Note'
 import New from './components/New'
